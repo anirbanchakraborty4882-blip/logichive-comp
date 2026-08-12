@@ -1,0 +1,6 @@
+{
+  "name": "LogicHive Compliance Awareness Training LMS",
+  "description": "Interactive corporate compliance training LMS covering Information Security, Quality Management, Ethics, POSH, and Clear Desk policies with >90% score certification requirement.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
