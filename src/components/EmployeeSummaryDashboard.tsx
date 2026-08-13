@@ -149,7 +149,7 @@ export const EmployeeSummaryDashboard: React.FC<EmployeeSummaryDashboardProps> =
 
       </div>
 
-      {/* Grid: Left - TryHackMe Modules Summary, Right - Final Assessment & Exam Status */}
+      {/* Grid: Left - Interactive Modules Summary, Right - Final Assessment & Exam Status */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Left Column (8 cols): Training Modules Overview */}
@@ -158,7 +158,7 @@ export const EmployeeSummaryDashboard: React.FC<EmployeeSummaryDashboardProps> =
             <div>
               <h2 className="text-lg font-bold text-slate-900 tracking-tight flex items-center space-x-2">
                 <BookOpen className="w-5 h-5 text-blue-600" />
-                <span>Training Modules Summary (TryHackMe Style)</span>
+                <span>Training Modules Summary (Interactive)</span>
               </h2>
               <p className="text-xs text-slate-500">
                 10 core compliance topics with top summaries & knowledge checks

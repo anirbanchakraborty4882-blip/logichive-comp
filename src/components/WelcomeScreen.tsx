@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, UserPlus, LogIn, ArrowRight, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
 import { EmployeeProfile } from '../types';
+import { isAllowedCorporateEmail } from '../utils/validation';
 
 interface WelcomeScreenProps {
   onStartTraining: (name: string, email: string, department: string) => void;
@@ -21,6 +22,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [department, setDepartment] = useState('Engineering');
+  const [emailError, setEmailError] = useState('');
   
   // Resume state
   const [resumeEmail, setResumeEmail] = useState('');
@@ -31,14 +33,20 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
     if (!name.trim() || !email.trim()) return;
 
     const trimmedEmail = email.trim().toLowerCase();
-    
+    if (!isAllowedCorporateEmail(trimmedEmail)) {
+      setEmailError('Please use your official company email (e.g. you@logichive.com).');
+      return;
+    }
+
     // Check if employee with this email already registered
     const matched = existingUsers.find((u) => u.email.toLowerCase() === trimmedEmail);
     if (matched) {
+      setEmailError('');
       onSelectExistingUser(matched);
       return;
     }
 
+    setEmailError('');
     onStartTraining(name.trim(), trimmedEmail, department);
   };
 
@@ -47,8 +55,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
     if (!resumeEmail.trim()) return;
 
     const trimmedEmail = resumeEmail.trim().toLowerCase();
-    const matched = existingUsers.find((u) => u.email.toLowerCase() === trimmedEmail);
+    if (!isAllowedCorporateEmail(trimmedEmail)) {
+      setResumeError('Please enter your official company email to resume your training.');
+      return;
+    }
 
+    const matched = existingUsers.find((u) => u.email.toLowerCase() === trimmedEmail);
     if (matched) {
       setResumeError('');
       onSelectExistingUser(matched);
@@ -145,6 +157,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
                     placeholder="e.g. anirban@logichive.com"
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                   />
+                  {emailError && (
+                    <div className="flex items-start space-x-2 p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-800 mt-2">
+                      <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                      <span>{emailError}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div>
@@ -249,7 +267,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
             <div className="space-y-3 mb-6">
               <div className="flex items-start space-x-2 text-xs text-slate-300">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <span><strong>TryHackMe Style Modules</strong>: Read top topic summaries & answer bottom knowledge checks.</span>
+                <span><strong>Interactive Modules</strong>: Read top topic summaries & answer bottom knowledge checks.</span>
               </div>
               <div className="flex items-start space-x-2 text-xs text-slate-300">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />

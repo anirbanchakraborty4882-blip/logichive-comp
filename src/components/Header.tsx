@@ -40,12 +40,12 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-extrabold text-lg tracking-tight text-slate-900">LogicHive</span>
-              <span className="px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-blue-50 text-blue-700 rounded border border-blue-200">
+              <span className="font-extrabold text-lg tracking-tight text-slate-900 whitespace-nowrap">LogicHive</span>
+              <span className="px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-blue-50 text-blue-700 rounded border border-blue-200 flex-shrink-0 whitespace-nowrap">
                 Compliance LMS
               </span>
             </div>
-            <p className="text-xs text-slate-500 hidden sm:block">Internal Corporate Compliance Training</p>
+            <p className="text-xs text-slate-500 hidden sm:block whitespace-nowrap">Internal Corporate Compliance Training</p>
           </div>
         </div>
 

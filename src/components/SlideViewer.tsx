@@ -83,7 +83,7 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 sm:py-8 space-y-6">
       
-      {/* TryHackMe Style Module Header */}
+      {/* Module Header */}
       <div className="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-md border border-slate-800">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div className="flex items-center space-x-3.5">
@@ -119,7 +119,7 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
           </div>
         </div>
 
-        {/* TryHackMe Task Selector Navigation Bar */}
+        {/* Task Selector Navigation Bar */}
         <div className="pt-4 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
           {TRAINING_MODULES.map((m, idx) => {
             const isCompleted = idx < moduleIndex;
@@ -149,7 +149,7 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
         </div>
       </div>
 
-      {/* SECTION 1: TryHackMe Topic Overview & Summary ("Read & Learn") */}
+      {/* SECTION 1: Topic Overview & Summary ("Read & Learn") */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6">
         
         {/* Topic Banner */}
@@ -266,7 +266,7 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
 
       </div>
 
-      {/* SECTION 2: TryHackMe Interactive Knowledge Check (Right Below Summary) */}
+      {/* SECTION 2: Interactive Knowledge Check (Right Below Summary) */}
       <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border-2 border-blue-100 shadow-sm space-y-4">
         
         <div className="flex items-center justify-between border-b border-slate-200 pb-3">
