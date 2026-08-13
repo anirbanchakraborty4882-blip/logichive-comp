@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, LayoutDashboard, Award, LogOut } from 'lucide-react';
+import { ShieldCheck, Award, LogOut } from 'lucide-react';
 import { EmployeeProfile } from '../types';
 
 interface HeaderProps {
@@ -83,7 +83,6 @@ export const Header: React.FC<HeaderProps> = ({
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
                 }`}
               >
-                <LayoutDashboard className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">My Summary Dashboard</span>
               </button>
 
