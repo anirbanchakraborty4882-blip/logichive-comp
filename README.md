@@ -1,6 +1,6 @@
-# LogicHive Internal Compliance Awareness Training LMS
+# Internal Compliance Awareness Training LMS
 
-A professional, responsive, interactive corporate LMS for LogicHive employees covering Information Security, Quality Management, Company Ethics, POSH, Clear Desk/Screen, and Employee Responsibilities.
+A professional, responsive, interactive corporate LMS for employees covering Information Security, Quality Management, Company Ethics, POSH, Clear Desk/Screen, and Employee Responsibilities.
 
 ---
 
@@ -13,7 +13,7 @@ A professional, responsive, interactive corporate LMS for LogicHive employees co
 
 ### Standalone Offline Installation (.zip)
 1. Click **"Offline Zip Package"** in the top navigation bar or Admin Dashboard.
-2. Download and unzip `LogicHive_Compliance_LMS_Offline.zip`.
+2. Download and unzip `Compliance_LMS_Offline.zip`.
 3. Double-click `index.html` in any web browser on any offline computer.
 
 ---
