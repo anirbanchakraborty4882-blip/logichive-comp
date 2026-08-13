@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
             <>
               <button
                 onClick={() => onNavigate('summary')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center justify-center px-3 py-1.5 min-w-[120px] rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeView === 'summary'
                     ? 'bg-blue-600 text-white shadow-xs'
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               <button
                 onClick={() => onNavigate('training')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`flex items-center justify-center px-3 py-1.5 min-w-[120px] rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeView === 'training'
                     ? 'bg-blue-600 text-white shadow-xs'
                     : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Admin Dashboard Toggle */}
           <button
             onClick={() => onNavigate(activeView === 'admin' ? (currentUser ? 'summary' : 'welcome') : 'admin')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center justify-center px-3 py-1.5 min-w-[120px] rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeView === 'admin'
                 ? 'bg-purple-600 text-white shadow-xs'
                 : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-300'
