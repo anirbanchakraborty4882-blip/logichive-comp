@@ -8,6 +8,7 @@ import {
 import { Header } from './components/Header';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { EmployeeSummaryDashboard } from './components/EmployeeSummaryDashboard';
+import { isAllowedCorporateEmail } from './utils/validation';
 import { SlideViewer } from './components/SlideViewer';
 import { FinalAssessment } from './components/FinalAssessment';
 import { ResultScreen } from './components/ResultScreen';
@@ -37,6 +38,10 @@ export default function App() {
 
   const handleStartTraining = (name: string, email: string, department: string) => {
     const trimmedEmail = email.trim().toLowerCase();
+    if (!isAllowedCorporateEmail(trimmedEmail)) {
+      alert('Registration requires an official company email address.');
+      return;
+    }
     const existing = getAllEmployees().find((e) => e.email && e.email.toLowerCase() === trimmedEmail);
     
     let profile: EmployeeProfile;
@@ -140,8 +145,8 @@ export default function App() {
   ) => {
     if (!currentUser) return;
 
-    // Strict rule: pass if score > 90%
-    const isPassed = scorePercentage > 90;
+    // Pass rule: pass if score >= 90%
+    const isPassed = scorePercentage >= 90;
 
     const attempt: AssessmentAttempt = {
       id: `att_${currentUser.employeeId}_${Date.now()}`,

@@ -37,7 +37,7 @@ export interface AssessmentAttempt {
   scorePercentage: number;
   correctAnswersCount: number;
   totalQuestions: number;
-  passed: boolean; // true if scorePercentage > 90
+  passed: boolean; // true if scorePercentage >= 90
   answers: Record<string, number>; // questionId -> selectedIndex
 }
 
