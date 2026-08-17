@@ -4,8 +4,8 @@ import { EmployeeProfile } from '../types';
 
 interface HeaderProps {
   currentUser: EmployeeProfile | null;
-  activeView: 'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert';
-  onNavigate: (view: 'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert') => void;
+  activeView: 'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert' | 'logout';
+  onNavigate: (view: 'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert' | 'logout') => void;
   onLogout: () => void;
   currentModuleIndex: number;
   totalModules: number;
@@ -135,7 +135,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
                 
                 <button
-                  onClick={onLogout}
+                  onClick={() => onNavigate('logout')}
                   title="Switch Employee / Logout"
                   className="p-1.5 text-slate-400 hover:text-red-600 transition-colors rounded-lg hover:bg-slate-100 cursor-pointer"
                 >

@@ -14,10 +14,11 @@ import { FinalAssessment } from './components/FinalAssessment';
 import { ResultScreen } from './components/ResultScreen';
 import { Certificate } from './components/Certificate';
 import { AdminDashboard } from './components/AdminDashboard';
+import Logout from './components/Logout';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<EmployeeProfile | null>(getStoredCurrentUser());
-  const [activeView, setActiveView] = useState<'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert'>(
+  const [activeView, setActiveView] = useState<'welcome' | 'summary' | 'training' | 'assessment' | 'result' | 'admin' | 'cert' | 'logout'>(
     currentUser ? 'summary' : 'welcome'
   );
   const [currentModuleIndex, setCurrentModuleIndex] = useState<number>(
@@ -219,6 +220,15 @@ export default function App() {
           {activeView === 'assessment' && currentUser && (
             <FinalAssessment
               onCompleteAssessment={handleCompleteAssessment}
+            />
+          )}
+
+          {activeView === 'logout' && (
+            <Logout
+              onConfirm={() => {
+                handleLogout();
+              }}
+              onCancel={() => setActiveView(currentUser ? 'summary' : 'welcome')}
             />
           )}
 
