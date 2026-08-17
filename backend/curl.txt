@@ -1,0 +1,17 @@
+Check Exists:
+curl "http://localhost:8080/checkIfUserExists?email=alex@go.dev"
+
+Update User:
+curl -X PUT http://localhost:8080/updateUser \
+  -H "Content-Type: application/json" \
+  -d '{"id": 1, "username": "alex_modified", "email": "alex_new@go.dev"}'
+
+Remove User:
+curl -X DELETE http://localhost:8080/removeUser \
+  -H "Content-Type: application/json" \
+  -d '{"id": 1}'
+
+Add User:
+curl -X POST http://localhost:8080/addUser \
+  -H "Content-Type: application/json" \
+  -d '{"username": "johny", "email": "johny@example.com", "password_hash": "Password123"}'
